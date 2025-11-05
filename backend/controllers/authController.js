@@ -211,7 +211,7 @@ export const forgotPassword = async (req, res, next) => {
       [tokenHash, expiry, user.auth_id]
     );
 
-    // Frontend link
+    // Frontend password reset link
     const resetUrl = `${process.env.FRONTEND_ORIGIN}/reset-password?token=${token}&email=${encodeURIComponent(email)}`;
 
     // Determine where to send
