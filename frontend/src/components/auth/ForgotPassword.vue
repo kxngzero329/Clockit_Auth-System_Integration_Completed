@@ -178,12 +178,18 @@ input[type="email"] {
   width: 100%;
   background: var(--accent-color);
   color: var(--button-text);
+  transition: 0.3s ease;
   border: none;
   padding: 12px 16px;
   border-radius: 22px;
   font-weight: 600;
   cursor: pointer;
   margin-bottom: 12px;
+}
+
+.primary:hover {
+  background-color: #05a892;
+  transform: translateY(-2px);
 }
 
 .primary:disabled {
