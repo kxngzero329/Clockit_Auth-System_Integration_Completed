@@ -207,6 +207,10 @@ input[type="email"] {
   text-decoration: none;
 }
 
+.secondary:hover {
+  text-decoration: underline;
+}
+
 /* Alerts */
 .alert {
   margin-top: 16px;
