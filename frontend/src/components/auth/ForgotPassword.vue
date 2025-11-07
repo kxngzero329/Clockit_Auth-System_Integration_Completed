@@ -11,20 +11,10 @@
       <p class="text">Enter your registered email address to receive a reset link.</p>
 
       <form @submit.prevent="handleForgotPassword">
-        <input
-          type="email"
-          v-model="form.email"
-          placeholder="Enter your email address"
-          required
-          :disabled="loading"
-        />
+        <input type="email" v-model="form.email" placeholder="Enter your email address" required :disabled="loading" />
 
         <div class="checkbox-wrapper">
-          <input
-            type="checkbox"
-            id="useBackup"
-            v-model="form.useBackup"
-          />
+          <input type="checkbox" id="useBackup" v-model="form.useBackup" />
           <label for="useBackup">Send to backup email instead</label>
         </div>
 
@@ -71,7 +61,7 @@ export default {
           success.value = true;
           message.value = response.data.message;
 
-          // ✅ mark this tab as the one that requested reset
+          // mark this tab as the one that requested reset
           localStorage.setItem("resetRequested", "true");
           channel.postMessage("reset-requested");
         } else {
@@ -141,16 +131,23 @@ export default {
   margin-bottom: 20px;
 }
 
-input[type="email"] {
+input {
   width: 100%;
   padding: 12px 14px;
   border-radius: 10px;
-  background: var(--input-bg);
   border: 1px solid var(--border-color);
-  margin-bottom: 16px;
-  font-size: 0.95rem;
+  background: var(--input-bg);
   color: var(--text-color);
+  margin-bottom: 18px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(6, 195, 167, 0.2);
+  outline: none;
+}
+
 
 /* Checkbox styling for clean layout */
 .checkbox-wrapper {
@@ -236,10 +233,12 @@ input[type="email"] {
     text-align: center;
     gap: 60px;
   }
+
   .image img {
     max-width: 70%;
     margin: 0 auto;
   }
+
   .form {
     max-width: 90%;
   }
@@ -249,9 +248,11 @@ input[type="email"] {
   .forgot-container {
     padding: 24px 16px;
   }
+
   .heading {
     font-size: 1.6rem;
   }
+
   .text {
     font-size: 0.9rem;
   }
